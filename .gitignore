@@ -53,3 +53,6 @@ ssd_data/data/ctf_exchange_neg_risk/logs_58M.csv
 ssd_data/data/ctf_exchange_neg_risk/logs_59M.csv
 ssd_data/data/ctf_exchange_neg_risk/logs_60M.csv
 ssd_data/data/ctf_exchange_neg_risk/logs_61M.csv
+ssd_data/data/decoded_events.csv
+
+ssd_data/data 
