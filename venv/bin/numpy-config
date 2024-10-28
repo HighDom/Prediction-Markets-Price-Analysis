@@ -1,4 +1,4 @@
-#!/Users/dominiquebuob/Documents/ETH/Bachelor_Thesis/Prediction-Markets-Price-Analysis/venv/bin/python
+#!/Users/dominiquebuob/Documents/ETH/Bachelor_Thesis/Prediction-Markets-Price-Analysis/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

@@ -1,0 +1,40 @@
+digraph Transaction {
+    rankdir=LR;
+    node [shape=rectangle, style=filled, fillcolor="#EFEFEF"];
+
+    // Nodes
+    User1 [label="User1\n(0x2edF...bb84)"];
+    User2 [label="User2\n(0xfEb5...A393)"];
+    Exchange [label="Polymarket CTF Exchange\n(0x4bFb...8982E)"];
+    ConditionalTokens [label="Conditional Tokens Contract\n(0x4d97...46045)"];
+    USDCe [label="Circle: USDC.e Token\n(0x2791...4174)"];
+
+    // Edges with numbered labels
+    // 1. User1 transfers USDC.e to Exchange
+    User1 -> Exchange [label="1. Transfer 999,999 USDC.e", color="blue"];
+
+    // 2. User1 approves Exchange to spend USDC.e
+    User1 -> Exchange [label="2. Approve USDC.e (Max Uint256)", style="dashed", color="blue"];
+
+    // 3. User2 transfers Conditional Tokens to Exchange
+    User2 -> Exchange [label="3. Transfer 4,166,665 Conditional Tokens", color="green"];
+
+    // 4. Exchange transfers USDC.e to User2
+    Exchange -> User2 [label="4. Transfer 999,999 USDC.e", color="blue"];
+
+    // 5. Order Filled - User2 and User1
+    Exchange -> Exchange [label="5. OrderFilled\nUser2 to User1\n4,166,665 Tokens for 999,999 USDC.e", color="purple"];
+
+    // 6. Exchange transfers Conditional Tokens to User1
+    Exchange -> User1 [label="6. Transfer 4,166,665 Conditional Tokens", color="green"];
+
+    // 7. Order Filled - User1 and Exchange
+    Exchange -> Exchange [label="7. OrderFilled\nUser1 to Exchange\n999,999 USDC.e for 4,166,665 Tokens", color="purple"];
+
+    // 8. Orders Matched
+    Exchange -> Exchange [label="8. OrdersMatched\n999,999 USDC.e for 4,166,665 Tokens", style="dotted", color="gray"];
+
+    // Associations
+    Exchange -> ConditionalTokens [label="Operates with", style="dotted"];
+    Exchange -> USDCe [label="Operates with", style="dotted"];
+}
